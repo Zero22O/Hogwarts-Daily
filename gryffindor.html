@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gryffindor | Hogwarts Daily</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #dcdcdc; /* สีพื้นหลังหลักเทาอ่อน/ครีม */
+      font-family: 'Libre Baskerville', serif;
+      color: #3b2f2f;
+    }
+
+    /* --- Banner Section --- */
+    .house-banner {
+      background-color: #4e0707; /* สีแดงเลือดหมูเข้ม */
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-bottom: 5px solid #850000; /* ขอบด้านล่าง */
+      /* ใส่ Background Image ลวดลายถ้ามี */
+      background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png'); 
+      background-blend-mode: multiply;
+    }
+
+    /* Ornamental Corners (Optional placeholders) */
+    .corner-ornament {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+    }
+    .top-left { top: 10px; left: 10px; background-image: url('https://via.placeholder.com/100x100/daa520/000000?text=Corner'); }
+    .top-right { top: 10px; right: 10px; background-image: url('https://via.placeholder.com/100x100/daa520/000000?text=Corner'); transform: scaleX(-1); }
+
+    .house-banner h1 {
+      font-family: 'Cinzel', serif;
+      color: #f5f5f5;
+      font-size: 3rem;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    /* --- Main Container --- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* --- Bio Section (Godric Gryffindor) --- */
+    .bio-card {
+      background-color: #e8e3d3; /* สีครีมกระดาษ */
+      border: 1px solid #c2b280;
+      border-radius: 15px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .bio-text {
+      flex: 2;
+    }
+
+    .bio-text h2 {
+      font-family: 'Cinzel', serif;
+      color: #5a3a22; /* สีน้ำตาลเข้ม */
+      font-size: 2rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .bio-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 15px;
+    }
+
+    /* Highlight word styling like in image */
+    .highlight-bold {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .bio-image-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .bio-image-wrapper img {
+      width: 220px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%; /* วงรี */
+      border: 4px solid #790b0b; /* ขอบ */
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* --- Gallery Section --- */
+    .gallery-title {
+      font-family: 'Cinzel', serif;
+      color: #5a3a22;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #c2b280;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Masonry Layout using Columns */
+    .gallery-grid {
+      column-count: 3; /* แบ่งเป็น 3 คอลัมน์ */
+      column-gap: 15px;
+    }
+
+    .gallery-item {
+      break-inside: avoid; /* ห้ามรูปขาดครึ่ง */
+      margin-bottom: 15px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .bio-card {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .bio-text p {
+        text-align: left;
+      }
+      .gallery-grid {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid {
+        column-count: 1;
+      }
+      .house-banner h1 {
+        font-size: 2rem;
+      }
+    }
+    /* เพิ่มใน <style> ของ gryffindor.html */
+
+/* 1. ปรับพื้นหลังทั้งหน้าให้เป็นสีครีมตาม Figma */
+body {
+    background-color: #e9e0cf !important;
+}
+
+/* 2. จัดการส่วนหัวที่มีปุ่มย้อนกลับ */
+.house-banner {
+    background-color: #4e0707; /* สีแดงกริฟฟินดอร์ */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button {
+    position: absolute;
+    left: 30px; /* ระยะห่างจากขอบซ้าย */
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+}
+
+.house-banner h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 60px;
+    color: white;
+    margin: 0;
+}
+  </style>
+</head>
+<body>
+
+<header class="house-banner">
+  <div class="banner-content">
+  <div class="header-container">
+    <a href="House.html" class="back-button">&lt;</a> <h1>Gryffindor</h1>
+  </div>
+</div>
+</header>
+
+<div class="container">
+
+  <section class="bio-card">
+    <div class="bio-text">
+      <h2>Godric Gryffindor</h2>
+      <p>
+        Among the legendary founders of Hogwarts, Godric Gryffindor stands as a symbol of bravery and unwavering honor. Born in the village that would one day be known as Godric's Hollow, he grew up with a fierce sense of justice and a noble heart that inspired those around  Gryffindor believed that true greatness was defined not by bloodline or wealth, but by courage — the willingness to do what is right even when it is difficult. With this belief, he created a house that welcomed students who possessed daring spirits, bold hearts, and the strength to stand up for others. <span class="highlight-bold"></span>.
+      </p>
+    </div>
+    <div class="bio-image-wrapper">
+      <img src="ImageH/G.jpg" alt="Godric Gryffindor">
+    </div>
+  </section>
+
+  <h3 class="gallery-title">Gallery</h3>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="ImageH/image 78.png" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="ImageH/image 74.png" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="ImageH/image 75.png" alt="">
+    </div>
+
+    <div class="gallery-item">
+      <img src="ImageH/image 73.png" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="ImageH/image 77.png" alt="">
+    </div>
+     <div class="gallery-item">
+      <img src="ImageH/image 72.png" alt="">
+    </div>
+    <div class="gallery-item">
+      <img src="ImageH/image 80.png" alt="">
+    </div>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

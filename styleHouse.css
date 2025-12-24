@@ -1,0 +1,235 @@
+/* Fonts */
+.crimson-text-regular {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crimson-text-semibold {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.crimson-text-bold {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.crimson-text-regular-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.crimson-text-semibold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.crimson-text-bold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Base Styles */
+:root {
+  --bg-main: #e7dfcf;
+  --bg-dark: #1f1f1f;
+  --gold: #8b6b3f;
+  --text-dark: #2b2b2b;
+  --border: #c9bfae;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color:#e9e0cf;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Layout & Components */
+.header {
+  background: #efe7d6;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-top {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+}
+
+.icon {
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: var(--gold);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.menubar {
+  background: var(--bg-dark);
+  height: 48px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for sticky state */
+}
+
+/* Flex spacers to allow center menu to be perfectly centered */
+.menu-left,
+.menu-right {
+  flex: 1;
+  display: flex;
+}
+
+.menu-right {
+  justify-content: flex-end;
+}
+
+.menu-center {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-center a {
+  color: #c7b58a;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.menu-center a:hover {
+  color: #fff;
+}
+
+/* Hover Underline Animation */
+.menu-center a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--gold);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.menu-center a:hover::after {
+  width: 100%;
+}
+
+.menu-right input {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  font-size: 13px;
+  background: #333;
+  color: #fff;
+}
+
+
+/* ===== SORTING ===== */
+.sorting {
+  background: #e9e0cf;
+  padding: 90px 0;
+  text-align: center;
+}
+
+.sorting h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  color: #5a3a0e;
+  margin-bottom: 50px;
+}
+
+/* container โล่ */
+.houses {
+  display: flex;
+  justify-content: center;
+  gap: 80px; /* ระยะห่างแบบ Figma */
+  margin-bottom: 60px;
+}
+
+/* 1 บ้าน */
+.house {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* รูปโล่ */
+.house img {
+  width: 140px;   /* ขนาดใกล้ Figma */
+  height: 140px;
+  transition: transform 0.3s ease;
+}
+
+.house img:hover {
+  transform: scale(1.08);
+}
+
+/* ชื่อบ้าน */
+.house p {
+  margin-top: 18px;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  color: #000;
+}
+
+/* ปุ่ม */
+.sorting button {
+  background: #7a5c2e;
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  cursor: pointer;
+}
