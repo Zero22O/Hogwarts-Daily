@@ -1,0 +1,572 @@
+/* Fonts */
+.crimson-text-regular {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.crimson-text-semibold {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.crimson-text-bold {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.crimson-text-regular-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.crimson-text-semibold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.crimson-text-bold-italic {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Base Styles */
+:root {
+  --bg-main: #e7dfcf;
+  --bg-dark: #1f1f1f;
+  --gold: #8b6b3f;
+  --text-dark: #2b2b2b;
+  --border: #c9bfae;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #e9e0cf;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Layout & Components */
+.header {
+  background: #efe7d6 !important;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-top {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-icons {
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+}
+
+.icon {
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: var(--gold);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.menubar {
+  background: var(--bg-dark);
+  height: 48px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for sticky state */
+}
+
+/* Flex spacers to allow center menu to be perfectly centered */
+.menu-left,
+.menu-right {
+  flex: 1;
+  display: flex;
+}
+
+.menu-right {
+  justify-content: flex-end;
+}
+
+.menu-center {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-center a {
+  color: #c7b58a;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+.menu-center a:hover {
+  color: #fff;
+}
+
+/* Hover Underline Animation */
+.menu-center a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--gold);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.menu-center a:hover::after {
+  width: 100%;
+}
+
+.menu-right input {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  font-size: 13px;
+  background: #333;
+  color: #fff;
+}
+.sorting {
+  background: #e9e0cf;
+  padding: 90px 0;
+  text-align: center;
+}
+
+.hero {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.hero .date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  color: var(--text-dark);
+}
+
+.hero img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 4px;
+  transition: transform 0.5s ease;
+}
+
+.img-hover {
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.img-hover:hover img {
+  transform: scale(1.03);
+}
+
+/* Content Grid (Article + Sidebar) */
+.content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+}
+
+.article h5 {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.article p {
+  font-family: 'Crimson Text', serif;
+  font-size: 20px;
+  margin-bottom: 24px;
+  color: #333;
+  line-height: 1.7;
+}
+
+.article p:first-of-type::first-letter {
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  margin-right: 8px;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 24px;
+  border-left: 1px solid var(--border);
+}
+
+.side-card {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.side-card:last-child {
+  border-bottom: none;
+}
+
+.side-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.side-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.side-card span {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  display: block;
+}
+
+/* Section Components */
+section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 16px;
+}
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: transparent !important; /* ลบพื้นหลังขาวออก */
+  border: none !important;           /* ลบเส้นขอบออก */
+  box-shadow: none !important;       /* ลบเงาออก */
+  text-align: left;
+  padding: 0 !important;             /* ลบ padding ส่วนเกิน */
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+/* ส่วนของวันที่ */
+.card span {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #836B3F; /* สีทองตามธีม */
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* ส่วนของหัวข้อ (Title) */
+.card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; /* ปรับขนาดให้ใกล้เคียง */
+  font-weight: 600;
+  color: #4a3728;
+  line-height: 1.3;
+  margin-top: 5px;
+}
+/* จัดตำแหน่งปุ่มให้อยู่กึ่งกลางหรือตามตำแหน่งที่ต้องการ */
+.more-container {
+    text-align: right;
+    margin: 10px 0;
+}
+
+/* สไตล์ปุ่ม More ตาม Figma */
+.btn-more {
+    display: inline-block;
+    background-color: #836B3F !important; /* สีน้ำตาลทองตามที่คุณระบุ */
+    color: #ffffff !important;            /* สีตัวอักษรขาว */
+    padding: 10px 30px;                   /* ขนาดปุ่ม */
+    text-decoration: none;                /* เอาเส้นใต้ลิงก์ออก */
+    font-family: 'Crimson Text', serif;    /* ฟอนต์ตามธีม */
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;            /* ตัวพิมพ์ใหญ่ทั้งหมด */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ไปชี้ */
+.btn-more:hover {
+    background-color: #6d5833 !important; /* สีจะเข้มขึ้นเล็กน้อย */
+    color: #ffffff;
+}
+/* Buttons */
+.hero .btn.btn-hover {
+    background-color: #836B3F !important; /* บังคับเปลี่ยนสีพื้นหลังเป็นสีตาม Figma */
+    color: #ffffff !important;            /* บังคับสีตัวอักษรเป็นสีขาว */
+    border: none !important;              /* เอาเส้นขอบออก */
+    padding: 10px 24px !important;        /* ปรับขนาดให้ใกล้เคียง Figma มากขึ้น */
+    display: inline-block;
+    text-decoration: none;
+     text-transform: uppercase;   /* ใช้ฟอนต์ Serif ตามภาพ */
+    transition: background-color 0.3s ease;
+}
+
+.btn-hover:hover {
+  background: #836B3F!important;
+}
+
+footer {
+  background: #1c1c1c;
+  color: #eee;
+  padding: 4rem 2rem;
+}
+
+.footer-grid {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.footer-grid h4 {
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--gold);
+}
+/* Media Queries */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 36px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .menubar {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+footer {
+    background: var(--bg-dark);
+    color: #dcdcdc;
+    padding: 60px 0;
+    margin-top: 80px;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+user agent stylesheet
+footer {
+    display: block;
+    unicode-bidi: isolate;
+}
+body {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: #e9e0cf;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #e9e0cf !important;
+    color: var(--text-dark) !important;
+    line-height: 1.6 !important;
+}
+:root, [data-bs-theme=light] {
+    --bs-carousel-indicator-active-bg: #fff;
+    --bs-carousel-caption-color: #fff;
+    --bs-carousel-control-icon-filter: ;
+}
+:root, [data-bs-theme=light] {
+    --bs-btn-close-filter: ;
+}
+:root {
+    --bs-breakpoint-xs: 0;
+    --bs-breakpoint-sm: 576px;
+    --bs-breakpoint-md: 768px;
+    --bs-breakpoint-lg: 992px;
+    --bs-breakpoint-xl: 1200px;
+    --bs-breakpoint-xxl: 1400px;
+}
+:root {
+    --bg-main: #e7dfcf;
+    --bg-dark: #1f1f1f;
+    --gold: #8b6b3f;
+    --text-dark: #2b2b2b;
+    --border: #c9bfae;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+/* Container หลักสำหรับปุ่มและเส้น */
+.btn-more-wrapper {
+    display: flex;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    width: 100%;
+    margin: 50px 0; /* ระยะห่างบน-ล่าง */
+}
+
+/* สร้างเส้นซ้ายและขวา */
+.btn-more-wrapper::before,
+.btn-more-wrapper::after {
+    content: "";
+    height: 1.5px; /* ความหนาของเส้นตาม Figma */
+    background-color: #836B3F; /* สีน้ำตาลทอง */
+    flex-grow: 1; /* ทำให้เส้นยืดออก */
+    max-width: 300px; /* ปรับความยาวของเส้นให้พอดีกับหน้ากระดาษ */
+}
+
+/* ระยะห่างระหว่างเส้นกับตัวปุ่ม */
+.btn-more-wrapper::before {
+    margin-right: 25px;
+}
+.btn-more-wrapper::after {
+    margin-left: 25px;
+}
+
+/* สไตล์ปุ่ม More ให้เป๊ะตามดีไซน์ */
+.btn-more {
+    background-color: #836B3F !important;
+    color: #ffffff !important;
+    padding: 10px 40px; /* ระยะห่างภายในปุ่ม */
+    text-decoration: none;
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px; /* ระยะห่างตัวอักษรให้ดูหรูหรา */
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0; /* ปุ่มสี่เหลี่ยมตามสไตล์นิตยสาร */
+    transition: all 0.3s ease;
+    white-space: nowrap; /* ป้องกันคำว่า More ตกบรรทัด */
+}
+
+.btn-more:hover {
+    background-color: #6a5632 !important;
+    letter-spacing: 3px; /* เอฟเฟกต์เวลา hover ให้ดูมีลูกเล่น */
+}
